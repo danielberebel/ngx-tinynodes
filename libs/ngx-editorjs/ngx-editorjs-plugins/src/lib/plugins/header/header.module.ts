@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { EDITOR_JS_TOOL_INJECTOR, PLUGIN_CONFIG, PluginTypes } from '../../types/plugins';
+
 import Header from '@editorjs/header';
+// const Header = require('@editorjs/header');
 
 /**
  * A module that provides the default EditorJS header block tool.
@@ -11,18 +13,20 @@ import Header from '@editorjs/header';
     {
       provide: EDITOR_JS_TOOL_INJECTOR,
       useValue: Header,
-      multi: true
+      multi: true,
     },
     {
       provide: PLUGIN_CONFIG,
       useValue: {
         key: 'header',
         type: PluginTypes.Block,
-        pluginName: 'EditorJS Header'
+        pluginName: 'EditorJS Header',
+        config: {
+          levels: [2, 3, 4],
+        },
       },
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class PluginHeaderModule {
-}
+export class PluginHeaderModule {}

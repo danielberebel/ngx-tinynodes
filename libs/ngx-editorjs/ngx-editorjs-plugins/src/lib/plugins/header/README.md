@@ -10,11 +10,11 @@ You first need to run `npm install @editorjs/header` to add as a dependency of y
 
 ```ts
 import { NgModule } from '@angular/core';
-import { NgxEditorJSModule, UserPlugins } from '@tinynodes/ngx-editorjs';
+import { EditorjsModule, UserPlugins } from '@wpw/libs/editorjs';
 import {
   PluginHeaderModule,
   PluginHeader,
-} from '@tinynodes/ngx-editorjs-plugins';
+} from '@wpw/libs/editorjs-plugins';
 
 export function createPlugins() {
   return { header: new PluginHeader() }
@@ -22,7 +22,7 @@ export function createPlugins() {
 
 @NgModule({
   imports: [
-    NgxEditorJSModule,
+    EditorjsModule,
     PluginHeaderModule,
     ...
   ],

@@ -10,11 +10,11 @@ You first need to run `npm install @editorjs/image` to add as a dependency of yo
 
 ```ts
 import { NgModule } from '@angular/core';
-import { NgxEditorJSModule, UserPlugins } from '@tinynodes/ngx-editorjs';
+import { EditorjsModule, UserPlugins } from '@wpw/libs/editorjs';
 import {
   PluginImageModule,
   PluginImage,
-} from '@tinynodes/ngx-editorjs-plugins';
+} from '@wpw/libs/editorjs-plugins';
 
 export function createPlugins() {
   return { image: new PluginImage() }
@@ -22,7 +22,7 @@ export function createPlugins() {
 
 @NgModule({
   imports: [
-    NgxEditorJSModule,
+    EditorjsModule,
     PluginImageModule,
     ...
   ],
