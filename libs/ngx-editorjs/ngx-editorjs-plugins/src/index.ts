@@ -10,6 +10,13 @@ export { PluginMarkerModule } from './lib/plugins/marker/marker.module';
 export { PluginParagraphModule } from './lib/plugins/paragraph/paragraph.module';
 export { PluginQuoteModule } from './lib/plugins/quote/quote.module';
 export { PluginSimpleImageModule } from './lib/plugins/simple-image/simple-image.module';
+
+export { PluginDelimiterModule } from './lib/plugins/delimiter/delimiter.module';
+export { PluginUnderlineModule } from './lib/plugins/underline/underline.module';
+export { PluginTableModule } from './lib/plugins/table/table.module';
+export { PluginPersonaltyModule } from './lib/plugins/personalty/personalty.module';
+export { PluginNestedListModule } from './lib/plugins/nested-list/nested-list.module';
+
 export { PluginWarningModule } from './lib/plugins/warning/warning.module';
 export { NgxEditorJSPluginServiceModule } from './lib/services/plugin-service.module';
 export { NgxEditorJSPluginService } from './lib/services/plugin-service.service';
@@ -24,6 +31,6 @@ export {
   PluginType,
   PluginTypes,
   PLUGIN_CONFIG,
-  ToolSettingsMap
+  ToolSettingsMap,
 } from './lib/types/plugins';
 export { createPluginConfig } from './lib/util/plugin';
