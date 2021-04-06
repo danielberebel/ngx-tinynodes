@@ -83,4 +83,4 @@ All `EditorJS` plugins are listed as `peerDependencies` of the project - this is
 | PluginIListModule       | Provides an `<ol>/<li>` block editor                   | [README](src/lib/plugins/list/README.md) [GitHub](https://github.com/editor-js/list)              |
 | PluginMarkerModule      | Provides inline text marking                           | [README](src/lib/plugins/marker/README.md) [GitHub](https://github.com/editor-js/marker)          |
 | PluginParagraphModule   | Provides an `<p>` block editor                         | [README](src/lib/plugins/paragraph/README.md) [GitHub](https://github.com/editor-js/paragraph)    |
-| PluginSimpleImageModule | Provides an `<img>` block editor with paste support    | [README](src/lib/plugins/simple-image/README.md) [GitHub](https://github.com/editor-js/paragraph) |
+| PluginSimpleImageModule | Provides an `<img>` block editor with paste support    | [README](src/lib/plugins/simple-image/README.md) [GitHub](https://github.com/editor-js/paragr
