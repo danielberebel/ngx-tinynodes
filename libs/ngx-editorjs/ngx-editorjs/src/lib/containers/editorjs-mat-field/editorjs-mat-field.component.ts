@@ -13,13 +13,14 @@ import {
   OnInit,
   Optional,
   Provider,
+  Renderer2,
   Self,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 import { NgxEditorJSDirective } from '../../directives/ngx-editorjs.directive';
 import { NgxEditorJSService } from '../../services/editorjs.service';
 import { NgxEditorJSComponent } from '../editorjs/editorjs.component';
@@ -30,7 +31,7 @@ import { NgxEditorJSComponent } from '../editorjs/editorjs.component';
 export const EDITORJS_MATERIAL_FIELD_CONTROL: Provider = {
   provide: MatFormFieldControl,
   useExisting: forwardRef(() => NgxEditorJSMatFieldComponent),
-  multi: true
+  multi: true,
 };
 
 /**
@@ -57,7 +58,7 @@ export interface EditorJSMaterialForm
   templateUrl: 'editorjs-mat-field.component.html',
   styleUrls: ['editorjs-mat-field.component.scss'],
   providers: [EDITORJS_MATERIAL_FIELD_CONTROL],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxEditorJSMatFieldComponent extends NgxEditorJSComponent implements EditorJSMaterialForm {
   /**
@@ -259,7 +260,8 @@ export class NgxEditorJSMatFieldComponent extends NgxEditorJSComponent implement
     protected readonly editorService: NgxEditorJSService,
     protected focusMonitor: FocusMonitor,
     protected readonly changeDetection: ChangeDetectorRef,
-    @Optional() @Self() public ngControl: NgControl
+    @Optional() @Self() public ngControl: NgControl,
+    protected renderer: Renderer2
   ) {
     super(editorService, focusMonitor, changeDetection);
   }
@@ -283,10 +285,22 @@ export class NgxEditorJSMatFieldComponent extends NgxEditorJSComponent implement
     this.setupServiceSubscriptions();
     this.getFocusMonitor(this.editorInstance.element)
       .pipe(takeUntil(this.onDestroy$))
-      .subscribe(focused => {
+      .subscribe((focused) => {
         this.onTouch();
         this.focused = focused;
         this.stateChanges.next();
+      });
+
+    // Insert the Add Button to the DOM within the editor area.
+    this.editorService
+      .getEditor({ holder: this.holder })
+      .pipe(take(1))
+      .subscribe(() => {
+        const addButton: HTMLElement = this.renderer.createElement('div');
+        addButton.setAttribute('class', 'add-new-block');
+        const buttonText = this.renderer.createText('Start writing or choose a block');
+        this.renderer.appendChild(addButton, buttonText);
+        this.renderer.appendChild(this.editorInstance.element.firstChild, addButton);
       });
   }
 
