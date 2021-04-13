@@ -13,7 +13,7 @@
     "@angular/core": "~9.1.0",
     "@angular/forms": "~9.1.0",
     "@angular/material": "~9.2.0",
-    "@editorjs/editorjs": "^2.17.0",
+    "@editorjs/editorjs": "^2.20.1",
     "@tinynodes/ngx-editorjs-plugins": "^3.0.0"
   },
   "license": "MIT",
