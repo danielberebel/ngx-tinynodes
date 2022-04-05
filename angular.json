@@ -21,8 +21,7 @@
             "tsConfig": "apps/ngx-tinynodes/tsconfig.app.json",
             "assets": ["apps/ngx-tinynodes/src/favicon.ico", "apps/ngx-tinynodes/src/assets"],
             "styles": ["apps/ngx-tinynodes/src/styles.css"],
-            "scripts": [],
-            "es5BrowserSupport": false
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -35,7 +34,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": true,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
