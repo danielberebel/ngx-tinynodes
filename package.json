@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:aot": "ng build --aot",
-    "build:lib": "ng build ngx-editorjs && ng build ngx-editorjs-plugins",
+    "build:lib": "ng build ngx-editorjs-plugins && ng build ngx-editorjs",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",
